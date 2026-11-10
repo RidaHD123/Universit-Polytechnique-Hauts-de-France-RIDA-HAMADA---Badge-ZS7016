@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redirection - UPHF Rida Hamada</title>
+<script>
+// GitHub Pages 404 fix - redirect to index.html keeping repo path
+(function(){
+  var path = window.location.pathname;
+  // Get repo base: /<repo>/...
+  var parts = path.split('/').filter(Boolean);
+  var base = parts.length > 0 ? '/' + parts[0] + '/' : '/';
+  // If already on index, do nothing
+  // Redirect to index.html in same repo
+  var target = base + 'index.html';
+  // Keep query if any
+  if (window.location.search) target += window.location.search;
+  // Avoid loop: if we are already on index.html, stop
+  if (path.endsWith('index.html') || path === base || path === base.slice(0,-1)) {
+    return;
+  }
+  window.location.replace(target);
+})();
+</script>
+<meta http-equiv="refresh" content="2; url=./index.html">
+<style>
+body{font-family:system-ui,Arial,sans-serif;background:#0F2A4D;color:#fff;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;text-align:center;padding:20px}
+.card{background:#fff;color:#0F2A4D;padding:32px;border-radius:16px;max-width:520px;width:100%;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+h1{margin:0 0 10px;font-size:22px}
+p{color:#444;line-height:1.6}
+a{display:inline-block;margin-top:16px;background:#E86A1C;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:700}
+small{color:#888}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>UPHF - Rida Hamada - ZS7016</h1>
+<p>Page non trouvée - 404<br>Redirection vers la page d'accueil...</p>
+<p>الصفحة غير موجودة - جاري تحويلك للصفحة الرئيسية...</p>
+<a href="./index.html">Aller à l'accueil / Go to Home</a><br><br>
+<small>Si la redirection ne fonctionne pas, cliquez sur le bouton ci-dessus.<br>Event: Study in Europe Rabat | Badge ZS7016</small>
+</div>
+</body>
+</html>
